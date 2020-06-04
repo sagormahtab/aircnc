@@ -1,0 +1,6 @@
+$pGradClr: #2BDE8C;
+$sGradClr: #86F244;
+$primary-grad: linear-gradient(to right, $pGradClr, $sGradClr);
+.primary-grad{
+    background: $primary-grad;
+}
