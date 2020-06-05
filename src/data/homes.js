@@ -1,0 +1,3 @@
+const homes = [{"_id":"5eda1c075ba6c54130199756","id":1,"img":"https://i.ibb.co/0Jp4PNy/home-1.png","imgTag":"NIGHTLIFE - NEW YORK","title":"Unique Cob Cottage","price":128,"ratings":284},{"_id":"5eda1c075ba6c54130199757","id":2,"img":"https://i.ibb.co/gV1CsDq/home-2.png","imgTag":"NIGHTLIFE - NEW YORK","title":"The Joshua Tree House","price":250,"ratings":269},{"_id":"5eda1c075ba6c54130199758","id":3,"img":"https://i.ibb.co/jTN9pBz/home-3.png","imgTag":"NIGHTLIFE - NEW YORK","title":"A Pirate's Life For Me - Houseboat!","price":209,"ratings":140}]
+
+export default homes;

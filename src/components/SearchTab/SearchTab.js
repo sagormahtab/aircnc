@@ -5,6 +5,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Link } from 'react-router-dom';
 
 const SearchTab = () => {
     const today = new Date();
@@ -129,10 +130,11 @@ const SearchTab = () => {
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             </div>
-            <MDBBtn className="primary-grad" style={{width: '96%', marginTop: '1rem'}}>
+            <Link to="/searchresult">
+                <MDBBtn className="primary-grad" style={{width: '96%', marginTop: '1rem'}}>
                 <MDBIcon icon="search" className="mr-1" /> Search
             </MDBBtn>
- 
+            </Link>
         </div>
     );
 };

@@ -1,6 +1,16 @@
 $pGradClr: #2BDE8C;
 $sGradClr: #86F244;
 $primary-grad: linear-gradient(to right, $pGradClr, $sGradClr);
+.p-color{
+    color: $pGradClr;
+}
 .primary-grad{
     background: $primary-grad;
+}
+.leaflet-container {
+    height: 90vh;
+    width: 100%;
+}
+.black-Link{
+    color: black;
 }
