@@ -17,7 +17,7 @@ const LandingPage = () => {
                         <SearchTab />
                     </MDBCol>
                     <MDBCol md="8">
-                        <div className="d-flex justify-content-between" style={{marginTop: '6rem'}}>
+                        <div className="d-flex justify-content-between mb-1" style={{marginTop: '6rem'}}>
                             <h4 className="font-weight-bold">Experiences</h4>
                             <span>See all 
                             <MDBIcon icon="angle-right" className="ml-1" />
@@ -28,7 +28,7 @@ const LandingPage = () => {
                             experiences.map(exp => <Experience key={exp.id} exp={exp}/>)
                         }
                         </MDBRow>
-                        <div className="d-flex justify-content-between" style={{marginTop: '3rem'}}>
+                        <div className="d-flex justify-content-between mb-1" style={{marginTop: '3rem'}}>
                             <h4 className="font-weight-bold">Homes</h4>
                             <span>See all 
                             <MDBIcon icon="angle-right" className="ml-1" />

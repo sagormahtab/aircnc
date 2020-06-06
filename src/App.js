@@ -9,6 +9,7 @@ import NavBar from './components/NavBar/NavBar';
 import LandingPage from './components/LandingPage/LandingPage';
 import SearchResult from './components/SearchResult/SearchResult';
 import HotelDetails from './components/HotelDetails/HotelDetails';
+import Reserve from './components/Reserve/Reserve';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/hotel/:id">
           <HotelDetails />
+        </Route>
+        <Route path="/review">
+          <Reserve />
         </Route>
       </Switch>
     </Router>

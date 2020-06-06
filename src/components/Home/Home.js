@@ -7,7 +7,7 @@ const Home = (props) => {
     return (
         <MDBCol md={4}>
             <img src={img} className="img-fluid" alt=""/>
-            <small className="d-block">{imgTag}</small>
+            <small className="d-block font-weight-bold my-2" style={{color: '#002B37', fontSize: '0.6rem'}}>{imgTag}</small>
             <strong className="d-block">{title}</strong>
             <small className="text-muted">${price} per person</small>
             <small className="d-block">
@@ -15,7 +15,7 @@ const Home = (props) => {
                 <MDBIcon icon="star" className="p-color" />
                 <MDBIcon icon="star" className="p-color" />
                 <MDBIcon icon="star" className="p-color" />
-                <MDBIcon icon="star" className="p-color" />
+                <MDBIcon icon="star" className="p-color mr-2" />
                 {ratings}
             </small>
         </MDBCol>

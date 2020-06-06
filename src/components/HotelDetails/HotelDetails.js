@@ -19,8 +19,8 @@ const HotelDetails = () => {
         <div>
             <MDBContainer>
                 <div className="d-flex mb-4">
-                    <div style={{widht: '50%', height: '50vh', overflow: 'hidden'}} className="d-flex align-items-center"><img src={hotel.images.img1} alt="" className="img-fluid"/></div>
-                    <div style={{widht: '50%', height: '50vh', overflow: 'hidden'}} className="d-flex align-items-center"><img src={hotel.images.img2} alt="" className="img-fluid"/></div>
+                    <div style={{widht: '50%', height: '35vh', overflow: 'hidden'}} className="d-flex align-items-center"><img src={hotel.images.img1} alt="" className="img-fluid"/></div>
+                    <div style={{widht: '50%', height: '35vh', overflow: 'hidden'}} className="d-flex align-items-center"><img src={hotel.images.img2} alt="" className="img-fluid"/></div>
                 </div>
                 <MDBRow>
                     <MDBCol md="7">
