@@ -67,7 +67,7 @@ const BookHotel = ({price, review}) => {
                         <strong>$167</strong>
                     </div>
 
-                    <MDBBtn className="primary-grad font-weight-bold text-capitalize d-block w-100"><Link to="/review" className="text-white">Reserve</Link></MDBBtn>
+                    <Link to="/review" className="text-white"><MDBBtn className="primary-grad font-weight-bold text-capitalize d-block w-100">Reserve</MDBBtn></Link>
                     <small className="text-muted text-center d-block mt-3">You won't be charged yet</small>
                 </MDBCardBody>
             </MDBCard>

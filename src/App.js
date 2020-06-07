@@ -10,6 +10,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import SearchResult from './components/SearchResult/SearchResult';
 import HotelDetails from './components/HotelDetails/HotelDetails';
 import Reserve from './components/Reserve/Reserve';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/review">
           <Reserve />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </Router>
