@@ -1,70 +1,64 @@
 import React, { useState } from 'react';
 import './SearchTab.scss';
-import { MDBInput, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
+import { MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { useForm } from 'react-hook-form';
+
 
 const SearchTab = () => {
-    const today = new Date();
-    const thisYear = today.getFullYear();
-    let thisMonth = today.getMonth() + 1;
-    let thisDate = today.getDate();
-    if(thisMonth < 10) {
-        thisMonth = "0"+thisMonth;
-    }
-    if(thisDate < 10) {
-        thisDate = "0"+thisDate;
+    let history = useHistory();
+
+    const redirect = () =>{
+        history.push('/searchResult');
     }
 
-    const [adults, setAdults] = useState(0);
-    const decreaseAdults = () => {
-        setAdults(adults - 1);
-    }
-    
-    const increaseAdults = () => {
-    setAdults(adults + 1);
-    }
-
+    const [adults, setAdults] = useState(1);
     const [childs, setChilds] = useState(0);
-    const decreaseChilds = () => {
-        setChilds(childs - 1);
-    }
-    
-    const increaseChilds = () => {
-        setChilds(childs + 1);
-    }
-
     const [babies, setBabies] = useState(0);
-    const decreaseBabies = () => {
-        setBabies(babies - 1);
-    }
-    
-    const increaseBabies = () => {
-        setBabies(babies + 1);
-    }
+
+    const cityList = [
+        { title: 'Dhaka' }
+    ];
+
+    const { register, handleSubmit } = useForm(); // initialise the hook
+    const onSubmit = (data) => {
+        console.log(data);
+        redirect();
+    };
     
     return (
         <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
             <h5 className="font-weight-bold mt-5 mb-4">Where do you want to go</h5>
             <div className="input-wrapper">
                 <h6 className="text-uppercase font-weight-bold">location</h6>
-                <MDBInput label="Add city, landmark or address" outline size="sm"/>
+                <Autocomplete
+                id="combo-box-demo"
+                freeSolo
+                    options={cityList}
+                    getOptionLabel={(option) => option.title}
+                    style={{ width: '100%' }}
+                    renderInput={(params) => <TextField required {...params} label="Add city, landmark or address" variant="outlined" />}
+                />
             </div>
             <div>
                 <MDBRow>
                     <MDBCol md="6" style={{paddingRight: '3px'}}>
                         <div className="input-wrapper">
                             <p className="text-muted">Arrival</p>
-                            <input type="date" value={thisYear+"-"+thisMonth+"-"+thisDate}/>
+                            <input type="date" name="arrDate" ref={register({ required: true })} />
                         </div>
                     </MDBCol>
                     <MDBCol md="6" style={{paddingLeft: '3px'}}>
                         <div className="input-wrapper">
                             <p className="text-muted">Departure</p>
-                            <input type="date"/>
+                            <input type="date" name="depDate" ref={register({ required: true })} />
                         </div>
                     </MDBCol>
                 </MDBRow>
@@ -90,10 +84,9 @@ const SearchTab = () => {
                     </MDBCol>
                     <MDBCol md="6">
                         <div className="def-number-input number-input">
-                            <button onClick={decreaseAdults} className="minus"></button>
-                            <input className="quantity" name="quantity" value={adults} onChange={()=> console.log('change')}
-                            type="number" />
-                            <button onClick={increaseAdults} className="plus"></button>
+                            <button onClick={() => adults > 0 && setAdults(adults - 1)} type="button" className="minus"></button>
+                            <input className="quantity" name="quantity" value={adults} type="number" />
+                            <button onClick={() => setAdults(adults + 1)} type="button" className="plus"></button>
                         </div>
                     </MDBCol>
                 </MDBRow>
@@ -104,10 +97,9 @@ const SearchTab = () => {
                     </MDBCol>
                     <MDBCol md="6">
                         <div className="def-number-input number-input">
-                            <button onClick={decreaseChilds} className="minus"></button>
-                            <input className="quantity" name="quantity" value={childs} onChange={()=> console.log('change')}
-                            type="number" />
-                            <button onClick={increaseChilds} className="plus"></button>
+                            <button onClick={() => childs > 0 && setChilds(childs - 1)} type="button" className="minus"></button>
+                            <input className="quantity" name="quantity" value={childs} type="number" />
+                            <button onClick={() => setChilds(childs + 1)} type="button" className="plus"></button>
                         </div>
                     </MDBCol>
                 </MDBRow>
@@ -118,10 +110,9 @@ const SearchTab = () => {
                     </MDBCol>
                     <MDBCol md="6">
                         <div className="def-number-input number-input">
-                            <button onClick={decreaseBabies} className="minus"></button>
-                            <input className="quantity" name="quantity" value={babies} onChange={()=> console.log('change')}
-                            type="number" />
-                            <button onClick={increaseBabies} className="plus"></button>
+                            <button onClick={() => babies > 0 && setBabies(babies - 1)} type="button" className="minus"></button>
+                            <input className="quantity" name="quantity" value={babies} type="number" />
+                            <button onClick={() => setBabies(babies + 1)} type="button" className="plus"></button>
                         </div>
                     </MDBCol>
                 </MDBRow>
@@ -130,11 +121,10 @@ const SearchTab = () => {
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             </div>
-            <Link to="/searchresult">
-                <MDBBtn className="primary-grad" style={{width: '96%', marginTop: '1rem'}}>
+                <MDBBtn className="primary-grad" type="submit" style={{width: '96%', marginTop: '1rem'}}>
                 <MDBIcon icon="search" className="mr-1" /> Search
-            </MDBBtn>
-            </Link>
+                </MDBBtn>
+            </form>
         </div>
     );
 };

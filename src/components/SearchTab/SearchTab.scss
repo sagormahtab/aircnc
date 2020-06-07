@@ -12,6 +12,9 @@ input[type="date"]{
     width: 100%;
     font-size: 0.8rem;
 }
+input[type="date"] {
+  border: none;
+}
 
 .number-input input[type="number"] {
     -webkit-appearance: textfield;
